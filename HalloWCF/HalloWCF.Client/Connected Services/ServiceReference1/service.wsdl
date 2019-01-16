@@ -13,6 +13,12 @@
   <wsdl:message name="IService1_GetData_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDataResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_SetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetData" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetDataResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_Verdoppeln_InputMessage">
     <wsdl:part name="parameters" element="tns:Verdoppeln" />
   </wsdl:message>
@@ -30,6 +36,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataResponse" message="tns:IService1_GetData_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="SetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SetData" message="tns:IService1_SetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SetDataResponse" message="tns:IService1_SetData_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Verdoppeln">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Verdoppeln" message="tns:IService1_Verdoppeln_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/VerdoppelnResponse" message="tns:IService1_Verdoppeln_OutputMessage" />
@@ -43,6 +53,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetData">
       <soap:operation soapAction="http://tempuri.org/IService1/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetData">
+      <soap:operation soapAction="http://tempuri.org/IService1/SetData" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

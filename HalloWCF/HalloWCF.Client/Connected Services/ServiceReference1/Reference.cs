@@ -127,10 +127,16 @@ namespace HalloWCF.Client.ServiceReference1 {
     public interface IService1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
-        string GetData(int value);
+        int GetData();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
-        System.Threading.Tasks.Task<string> GetDataAsync(int value);
+        System.Threading.Tasks.Task<int> GetDataAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SetData", ReplyAction="http://tempuri.org/IService1/SetDataResponse")]
+        void SetData(int value);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SetData", ReplyAction="http://tempuri.org/IService1/SetDataResponse")]
+        System.Threading.Tasks.Task SetDataAsync(int value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Verdoppeln", ReplyAction="http://tempuri.org/IService1/VerdoppelnResponse")]
         int Verdoppeln(int value);
@@ -172,12 +178,20 @@ namespace HalloWCF.Client.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public string GetData(int value) {
-            return base.Channel.GetData(value);
+        public int GetData() {
+            return base.Channel.GetData();
         }
         
-        public System.Threading.Tasks.Task<string> GetDataAsync(int value) {
-            return base.Channel.GetDataAsync(value);
+        public System.Threading.Tasks.Task<int> GetDataAsync() {
+            return base.Channel.GetDataAsync();
+        }
+        
+        public void SetData(int value) {
+            base.Channel.SetData(value);
+        }
+        
+        public System.Threading.Tasks.Task SetDataAsync(int value) {
+            return base.Channel.SetDataAsync(value);
         }
         
         public int Verdoppeln(int value) {

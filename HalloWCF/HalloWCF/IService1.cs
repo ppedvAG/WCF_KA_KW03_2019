@@ -9,7 +9,10 @@ namespace HalloWCF
     public interface IService1
     {
         [OperationContract]
-        string GetData(int value);
+        int GetData();
+
+        [OperationContract]
+        void SetData(int value);
 
         [OperationContract]
         int Verdoppeln(int value);
@@ -21,7 +24,7 @@ namespace HalloWCF
     [DataContract]
     public class Obst
     {
-        [DataMember(Order =1)]
+        [DataMember(Order = 1)]
         public string Name { get; set; }
 
         [DataMember]

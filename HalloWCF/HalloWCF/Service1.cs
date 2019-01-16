@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ServiceModel;
 
 namespace HalloWCF
 {
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single,IncludeExceptionDetailInFaults =true)]
     public class Service1 : IService1
     {
-        public string GetData(int value)
+
+        public int value;
+        public int GetData()
         {
-            return string.Format("You entered: {0}", value);
+            return value;
         }
 
         public IEnumerable<Obst> GetObst()
@@ -40,9 +44,14 @@ namespace HalloWCF
             };
         }
 
+        public void SetData(int value)
+        {
+            this.value = value;
+        }
+
         public int Verdoppeln(int value)
         {
-            return value * 2;
+            return value * 2 /0;
         }
     }
 }
