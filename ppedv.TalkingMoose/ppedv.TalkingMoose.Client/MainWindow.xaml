@@ -1,0 +1,23 @@
+﻿<Window x:Class="ppedv.TalkingMoose.Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ppedv.TalkingMoose.Client"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="600">
+    <DockPanel>
+        <StackPanel Margin="12" DockPanel.Dock="Top" Orientation="Horizontal">
+            <Label>Name</Label>
+            <TextBox Width="100" Name="nameTb">Fred</TextBox>
+            <Button Name="loginBtn" Click="LoginBtn_Click">Login</Button>
+            <Button Name="logoutBtn" IsEnabled="False" Click="LogoutBtn_Click">Logout</Button>
+        </StackPanel>
+        <DockPanel DockPanel.Dock="Bottom" Margin="12">
+            <Button IsEnabled="False" Name="msgBtn" DockPanel.Dock="Right" Click="Button_Click">Senden</Button>
+            <TextBox IsEnabled="False" Name="msgTb"/>
+        </DockPanel>
+        <ListBox Width="120" DockPanel.Dock="Right" Name="usersLb"/>
+        <ListBox Name="msgLb"/>
+    </DockPanel>
+</Window>

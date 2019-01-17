@@ -15,7 +15,7 @@ namespace ppedv.TalkingMoose.Contracts
         [OperationContract(IsOneWay = true)]
         void SendFile(Stream file);
 
-        [OperationContract(IsOneWay = true)]
+        [OperationContract(IsOneWay =true)]
         void Login(string name);
 
         [OperationContract(IsOneWay = true)]
