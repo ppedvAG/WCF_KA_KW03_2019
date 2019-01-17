@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿//using Contracts;
+using Contracts;
+using System.Collections.Generic;
 using System.ServiceModel;
 
 namespace WCFSelfhost
@@ -7,6 +9,7 @@ namespace WCFSelfhost
     public interface IBurgerService
     {
         [OperationContract]
+        [FaultContract(typeof(BurgerException))]
         IEnumerable<Burger> GetBurgers();
     }
 
