@@ -31,6 +31,11 @@ namespace RESTClient
             using (var wc = new WebClient())
             {
                 wc.Encoding = Encoding.UTF8;
+                wc.UploadString("URL", "PUT", "NEUE BUCH");
+
+                //wc.Headers.Add("Accept", "text/xml");
+                //wc.Credentials = new NetworkCredential("Fred", "password");
+                wc.UseDefaultCredentials = true;
                 var json = await wc.DownloadStringTaskAsync("https://www.googleapis.com/books/v1/volumes?q=wcf");
                 //tb.Text = json;
                 var br = Newtonsoft.Json.JsonConvert.DeserializeObject<BooksResult>(json);
