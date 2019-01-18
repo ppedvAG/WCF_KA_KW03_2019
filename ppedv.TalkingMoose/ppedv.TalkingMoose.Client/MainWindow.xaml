@@ -14,6 +14,7 @@
             <Button Name="logoutBtn" IsEnabled="False" Click="LogoutBtn_Click">Logout</Button>
         </StackPanel>
         <DockPanel DockPanel.Dock="Bottom" Margin="12">
+            <Button Name="picBtn" DockPanel.Dock="Right" Click="PicBtn_Click">Schicke Bild</Button>
             <Button IsEnabled="False" Name="msgBtn" DockPanel.Dock="Right" Click="Button_Click">Senden</Button>
             <TextBox IsEnabled="False" Name="msgTb"/>
         </DockPanel>

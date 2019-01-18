@@ -7,6 +7,7 @@ using System.ServiceModel;
 
 namespace ppedv.TalkingMoose.Server
 {
+    [ServiceBehavior (InstanceContextMode =InstanceContextMode.Single)]
     public class Server : IServer
     {
         static Dictionary<string, IClient> userlist = new Dictionary<string, IClient>();
@@ -48,6 +49,17 @@ namespace ppedv.TalkingMoose.Server
         public void SendPic(Stream pic)
         {
             Console.WriteLine($"SendPic");
+
+            var stream = new MemoryStream();
+            pic.CopyTo(stream);
+            pic.Close();
+
+            ActionToAllUsers(x =>
+            {
+                stream.Position = 0;
+                x.ShowPic(stream);
+            });
+
         }
 
         public void SendText(string txt)
